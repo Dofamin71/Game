@@ -6,4 +6,9 @@
     <string name="help">Help Screen</string>
     <string name="scores">Scores Screen</string>
     <string name="settings">Settings Screen</string>
+    <string name="the_elder_scrolls">The-elder-scrolls</string>
+    <string name="records">RECORDS</string>
+    <string name="options">OPTIONS</string>
+    <string name="exit">EXIT</string>
+    <string name="play">PLAY</string>
 </resources>
