@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+
+import com.example.game.R;
+import com.example.game.activities.MenuActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -21,11 +24,6 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
         finish();
@@ -61,12 +59,9 @@ public class SplashActivity extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(flags);
         final View decorView = getWindow().getDecorView();
         decorView
-                .setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
-                    @Override
-                    public void onSystemUiVisibilityChange(int visibility) {
-                        if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
-                            decorView.setSystemUiVisibility(flags);
-                        }
+                .setOnSystemUiVisibilityChangeListener(visibility -> {
+                    if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+                        decorView.setSystemUiVisibility(flags);
                     }
                 });
         Log.e("Resume", "onResume");

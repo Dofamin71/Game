@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.activities;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -7,7 +7,9 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MenuActivity extends AppCompatActivity {
+import com.example.game.R;
+
+public class SettingsActivity extends AppCompatActivity {
 
     final int flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
             | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -20,7 +22,7 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.menu);
+        setContentView(R.layout.settings);
     }
 
     @Override
@@ -47,12 +49,9 @@ public class MenuActivity extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(flags);
         final View decorView = getWindow().getDecorView();
         decorView
-                .setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
-                    @Override
-                    public void onSystemUiVisibilityChange(int visibility) {
-                        if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
-                            decorView.setSystemUiVisibility(flags);
-                        }
+                .setOnSystemUiVisibilityChangeListener(visibility -> {
+                    if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+                        decorView.setSystemUiVisibility(flags);
                     }
                 });
         Log.e("Resume", "onResume");
@@ -61,7 +60,6 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
         Log.e("Start", "onStart");
     }
 

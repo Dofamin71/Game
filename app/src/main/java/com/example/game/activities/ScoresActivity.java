@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.activities;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.game.R;
 
 public class ScoresActivity extends AppCompatActivity {
 
@@ -47,12 +49,9 @@ public class ScoresActivity extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(flags);
         final View decorView = getWindow().getDecorView();
         decorView
-                .setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
-                    @Override
-                    public void onSystemUiVisibilityChange(int visibility) {
-                        if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
-                            decorView.setSystemUiVisibility(flags);
-                        }
+                .setOnSystemUiVisibilityChangeListener(visibility -> {
+                    if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+                        decorView.setSystemUiVisibility(flags);
                     }
                 });
         Log.e("Resume", "onResume");

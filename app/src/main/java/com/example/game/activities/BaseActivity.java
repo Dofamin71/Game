@@ -1,6 +1,6 @@
-package com.example.game;
+package com.example.game.activities;
 
-import android.app.Activity;
+import com.example.game.activities.SplashActivity;
 
 public class BaseActivity extends SplashActivity {
     public static final String GAME_PREFERENCES = "GamePrefs";
